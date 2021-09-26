@@ -1,8 +1,8 @@
 import logging
 from urllib.parse import urljoin
 
-from pyspcwebgw.const import AreaMode
-from pyspcwebgw.utils import _load_enum
+from .pyspcwebgw.const import AreaMode
+from .pyspcwebgw.utils import _load_enum
 
 _LOGGER = logging.getLogger(__name__)
 

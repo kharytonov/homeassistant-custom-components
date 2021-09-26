@@ -1,5 +1,5 @@
 """Support for Vanderbilt (formerly Siemens) SPC alarm systems."""
-from pyspcwebgw.const import ZoneInput, ZoneType
+from .pyspcwebgw.const import ZoneInput, ZoneType
 
 from homeassistant.components.binary_sensor import (
     DEVICE_CLASS_MOTION,

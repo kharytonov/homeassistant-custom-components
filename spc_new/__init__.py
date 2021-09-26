@@ -1,9 +1,9 @@
 """Support for Vanderbilt (formerly Siemens) SPC alarm systems."""
 import logging
 
-from pyspcwebgw import SpcWebGateway
-from pyspcwebgw.area import Area
-from pyspcwebgw.zone import Zone
+from .pyspcwebgw import SpcWebGateway
+from .pyspcwebgw.area import Area
+from .pyspcwebgw.zone import Zone
 import voluptuous as vol
 
 from homeassistant.helpers import aiohttp_client, discovery
@@ -15,8 +15,8 @@ _LOGGER = logging.getLogger(__name__)
 CONF_WS_URL = "ws_url"
 CONF_API_URL = "api_url"
 
-DOMAIN = "spc"
-DATA_API = "spc_api"
+DOMAIN = "spc_new"
+DATA_API = "spc_new_api"
 
 SIGNAL_UPDATE_ALARM = "spc_update_alarm_{}"
 SIGNAL_UPDATE_SENSOR = "spc_update_sensor_{}"
