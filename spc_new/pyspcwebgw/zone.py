@@ -28,7 +28,7 @@ class Zone:
         self._name = spc_zone['zone_name']
         self._area = area
 
-        self.update(spc_zone)
+        self._update(spc_zone)
 
     def __str__(self):
         return '{id}: {name} ({type}). Input: {inp}, status: {status}'.format(
@@ -59,7 +59,7 @@ class Zone:
     def area(self):
         return self._area
 
-    def update(self, spc_zone, sia_code=None):
+    def _update(self, spc_zone, sia_code=None):
         _LOGGER.debug("Update zone %s", self.id)
 
         self._input = _load_enum(ZoneInput, spc_zone['input'])
@@ -67,11 +67,10 @@ class Zone:
         self._status = _load_enum(ZoneStatus, spc_zone['status'])
 
     async def update_state(self, sia_code=None):
-        method = "spc/zone/{}".format(self.id)
-        data = await self._gateway.async_get_request(method)
+        data = await self._gateway.async_get_request("spc/zone/{}".format(self.id))
         if data:
             if isinstance(data['data']['zone'], list):
                 data = data['data']['zone'][0]
             else:
                 data = data['data']['zone']
-            self.update(data, sia_code)
+            self._update(data, sia_code)

@@ -131,34 +131,31 @@ class SpcWebGateway:
 
     async def _async_get_zones(self):
         """Get the data for all resourced of a specific type """
-        url = urljoin(self._api_url, "spc/zone")
-        data = await self.async_get_request(url)
+        data = await self.async_get_request("spc/zone")
         if data:
             return [item for item in data['data']["zone"]]
 
     async def _async_get_areas(self):
         """Get the data for all resourced of a specific type """
-        url = urljoin(self._api_url, "spc/area")
-        data = await self.async_get_request(url)
+        data = await self.async_get_request("spc/area")
         if data:
             return [item for item in data['data']["area"]]
 
     async def _async_get_panel_info(self):
         """Get the data for all resourced of a specific type """
-        url = urljoin(self._api_url, "spc/panel")
-        data = await self.async_get_request(url)
+        data = await self.async_get_request("spc/panel")
         if data:
             return data['data']["panel"]
 
-    async def async_get_request(self, url, **kwargs):
-        return await self._async_request("get", url, **kwargs)
+    async def async_get_request(self, method, **kwargs):
+        return await self._async_request("get", method, **kwargs)
 
-    async def async_put_request(self, url, **kwargs):
-        return await self._async_request("put", url, **kwargs)
+    async def async_put_request(self, method, **kwargs):
+        return await self._async_request("put", method, **kwargs)
 
-    async def _async_request(self, action, url, **kwargs):
+    async def _async_request(self, action, method, **kwargs):
         """Do a web request and manage response."""
-        url = urljoin(self._api_url, url)
+        url = urljoin(self._api_url, method)
         try:
             with async_timeout.timeout(10):
                 _LOGGER.debug("Sending %s request %s to %s", action, kwargs, url)

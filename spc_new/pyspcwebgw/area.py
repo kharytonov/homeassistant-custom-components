@@ -64,8 +64,7 @@ class Area:
         self._last_unset_user_name = api_data.get('last_unset_user_name', 'N/A')
 
     async def update_state(self, sia_code=None):
-        method = "spc/area/{}".format(self.id)
-        data = await self._gateway.async_get_request(method)
+        data = await self._gateway.async_get_request("spc/area/{}".format(self.id))
         if data:
             data = data['data']['area'][0]
             self._update(data)
