@@ -80,6 +80,8 @@ class SpcWebGateway:
 
     async def change_mode(self, area, new_mode):
         """Set/unset/part set an area."""
+
+        _LOGGER.info("Changing Panel mode to {}".format(new_mode))
         if not isinstance(new_mode, AreaMode):
             raise TypeError("new_mode must be an AreaMode")
 

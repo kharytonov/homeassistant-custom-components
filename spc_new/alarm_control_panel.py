@@ -99,12 +99,12 @@ class SpcAlarm(alarm.AlarmControlPanelEntity):
     async def async_alarm_arm_home(self, code=None):
         """Send arm home command."""
 
-        await self._api.change_mode(area=self._area, new_mode=AreaMode.PART_SET_B)
+        await self._api.change_mode(area=self._area, new_mode=AreaMode.PART_SET_A)
 
     async def async_alarm_arm_night(self, code=None):
         """Send arm home command."""
 
-        await self._api.change_mode(area=self._area, new_mode=AreaMode.PART_SET_A)
+        await self._api.change_mode(area=self._area, new_mode=AreaMode.PART_SET_B)
 
     async def async_alarm_arm_away(self, code=None):
         """Send arm away command."""
