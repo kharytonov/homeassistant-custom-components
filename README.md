@@ -1,1 +1,1 @@
-# someassistant-custom-components
+# homeassistant-custom-components
