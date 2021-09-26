@@ -1,0 +1,8 @@
+{
+  "domain": "spc_new",
+  "name": "Vanderbilt SPC",
+  "documentation": "https://www.home-assistant.io/integrations/spc",
+  "requirements": [],
+  "codeowners": [],
+  "iot_class": "local_push"
+}
