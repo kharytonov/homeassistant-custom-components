@@ -85,8 +85,8 @@ class SpcWebGateway:
 
         AREA_MODE_COMMAND_MAP = {
             AreaMode.UNSET: 'unset',
-            AreaMode.PART_SET_A: 'set_b',
-            AreaMode.PART_SET_B: 'set_a',
+            AreaMode.PART_SET_A: 'set_a',
+            AreaMode.PART_SET_B: 'set_b',
             AreaMode.FULL_SET: 'set'
         }
         if not isinstance(area, Area):

@@ -1,8 +1,8 @@
 import logging
 from urllib.parse import urljoin
 
-from .pyspcwebgw.const import ZoneInput, ZoneType, ZoneStatus
-from .pyspcwebgw.utils import _load_enum
+from .const import ZoneInput, ZoneType, ZoneStatus
+from .utils import _load_enum
 
 _LOGGER = logging.getLogger(__name__)
 
