@@ -158,7 +158,7 @@ class SpcWebGateway:
         url = urljoin(self._api_url, method)
         try:
             with async_timeout.timeout(10):
-                _LOGGER.debug("Sending %s request %s to %s", action, kwargs, url)
+                _LOGGER.debug("Sending %s request to %s with data %s", action, url, kwargs)
                 response = await getattr(self._session, action)(url, **kwargs)
             if response.status != 200:
                 _LOGGER.error("HTTP status %d, response %s.",
