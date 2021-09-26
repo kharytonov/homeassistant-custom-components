@@ -28,8 +28,8 @@ def _get_alarm_state(area):
 
     mode_to_state = {
         AreaMode.UNSET: STATE_ALARM_DISARMED,
-        AreaMode.PART_SET_A: STATE_ALARM_ARMED_HOME,
-        AreaMode.PART_SET_B: STATE_ALARM_ARMED_NIGHT,
+        AreaMode.PART_SET_A: STATE_ALARM_ARMED_NIGHT,
+        AreaMode.PART_SET_B: STATE_ALARM_ARMED_HOME,
         AreaMode.FULL_SET: STATE_ALARM_ARMED_AWAY,
     }
     return mode_to_state.get(area.mode)
@@ -99,12 +99,12 @@ class SpcAlarm(alarm.AlarmControlPanelEntity):
     async def async_alarm_arm_home(self, code=None):
         """Send arm home command."""
 
-        await self._api.change_mode(area=self._area, new_mode=AreaMode.PART_SET_A)
+        await self._api.change_mode(area=self._area, new_mode=AreaMode.PART_SET_B)
 
     async def async_alarm_arm_night(self, code=None):
         """Send arm home command."""
 
-        await self._api.change_mode(area=self._area, new_mode=AreaMode.PART_SET_B)
+        await self._api.change_mode(area=self._area, new_mode=AreaMode.PART_SET_A)
 
     async def async_alarm_arm_away(self, code=None):
         """Send arm away command."""
