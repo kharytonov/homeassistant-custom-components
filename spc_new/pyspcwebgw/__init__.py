@@ -47,7 +47,7 @@ class SpcWebGateway:
 
     @property
     def serial_number(self):
-        return self._info["data"]["panel"]["sn"]
+        return self._info["sn"]
 
     def start(self):
         """Connect websocket to SPC Web Gateway."""
