@@ -45,6 +45,10 @@ class SpcWebGateway:
         """Retrieve all available zones."""
         return self._zones
 
+    @property
+    def serial_number(self):
+        return self._info["data"]["panel"]["sn"]
+
     def start(self):
         """Connect websocket to SPC Web Gateway."""
         self._websocket = AIOWSClient(loop=self._loop,
