@@ -64,6 +64,11 @@ class SpcBinarySensor(BinarySensorEntity):
         return self._zone.name
 
     @property
+    def unique_id(self):
+        """Return unique ID for entity."""
+        return self._zone.unique_id
+
+    @property
     def is_on(self):
         """Whether the device is switched on."""
         return self._zone.input == ZoneInput.OPEN

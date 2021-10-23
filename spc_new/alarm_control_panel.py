@@ -77,6 +77,11 @@ class SpcAlarm(alarm.AlarmControlPanelEntity):
         return self._area.name
 
     @property
+    def unique_id(self):
+        """Return unique ID for entity."""
+        return self._area.unique_id
+
+    @property
     def changed_by(self):
         """Return the user the last change was triggered by."""
         return self._area.last_changed_by
