@@ -39,7 +39,7 @@ class Area:
 
     @property
     def unique_id(self):
-        return "{}-{}".format(self.gateway.serial_number, self.id)
+        return "{}-{}".format(self._gateway.serial_number, self.id)
 
     @property
     def name(self):
